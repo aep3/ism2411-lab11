@@ -24,3 +24,13 @@ customer['tier'] = 'platinum'
 print(customer)
 del customer['name']
 print(customer)
+
+print(customer.get("ytd_spend", "0"))
+
+print("--- Exercise 3 ---")
+print(customer.get("email", "no email on file"))
+
+# try:
+#     print(customer["email"])
+# except KeyError as error:
+#     print("KeyError caught: ", error)
