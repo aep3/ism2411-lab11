@@ -2,6 +2,11 @@
 # Author: Ashley
 # Module 11 Lab: Customer Dictionary & Lookup
 
+#reflection
+#1
+#2
+
+
 print("--- Exercise 1 ---")
 customer = {
     "name": "Alice",
@@ -57,6 +62,42 @@ print(f"Tier: {customer['tier']}")
 print(f"Discount Rate: {discount_rate * 100}%")
 print(f"Final Price: {final_price:.2f}")
 
+print("--- Exercise 6 ---")
+customers = [
+    {"name": "Bob", "tier": "silver", "ytd_spend": 3200},
+    {"name": "Carol", "tier": "gold", "ytd_spend": 8750},
+    {"name": "David", "tier": "bronze", "ytd_spend": 450},
+]
+
+for record in customers:
+    rate = tier_discounts.get(record["tier"], 0)
+    discount = 300 * rate
+    print(f"Customer: {record['name']}, Tier: {record['tier']}, Discount: {discount:.2f}")
 
 
-   
+print("--- Exercise 7 ---")
+catalog = {
+    "Widget A": {"price": 9.99, "stock": 100},
+    "Gadget C": {"price": 49.99, "stock": 8},
+}
+for product_name, product_details in catalog.items():
+    if product_details["stock"] < 20:
+        print(f"Low stock: {product_name} - only {product_details['stock']} left")
+
+print("--- Exercise 8---")
+transactions = [
+    {"region": "South", "amount": 300},
+    {"region": "North", "amount": 150},
+    {"region": "South", "amount": 200},
+]
+
+sales_by_region = {}
+for sale in transactions:
+    region = sale["region"]
+    amount = sale["amount"]
+    sales_by_region[region] = sales_by_region.get(region, 0) + amount
+
+print(sales_by_region)
+
+for region in sorted(sales_by_region):
+    print(f"{region}: {sales_by_region[region]:.2f}")
